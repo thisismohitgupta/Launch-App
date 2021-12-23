@@ -97,7 +97,7 @@
                 </div>
 
 
-                <div class=" col-md-5 col-sm-6 newheroform-block order-sm-2 order-md-1">
+                <div class=" col-md-5 col-sm-6 newheroform-block order-sm-2 order-md-1" id="subscription-container">
                     <div class="heroform-header">
                         <div class="formheader-nav">
                             <h1>Subscription</h1>
@@ -114,8 +114,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                <label for="user-email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="user-email"
                                     placeholder="name@example.com">
                             </div>
                             <div class="mb-3">
@@ -125,7 +125,7 @@
                             </div>
 
                             <div class="hero-cta">
-                                <button id="buybtn1" class="btn carousel-control-next" type="button"
+                                <button id="subscribe-btn" class="btn carousel-control-next" type="button"
                                     data-bs-target="#buyCarousel" data-bs-slide="next">
                                     Book 50 TUSDUSDT for Free
                                 </button>
@@ -161,8 +161,8 @@
         <div class="container coinshred">
 
             <div class="row boxrow alignitems-center justify-content-evenly py-2 ">
-                <div class="col-md-5 col-sm-12 order-sm-1 order-md-2">
-                    <img src="/IMG/Mock Ups/Apple iPhone XS Gold.png" class="img-thumbnail bg-grey mockups"
+                <div class="col-md-5 col-sm-12 order-sm-1 order-md-2 mockup-container">
+                    <img src="/IMG/Mock Ups/mock-1.png" class="img-thumbnail bg-grey mockups"
                         alt="mockups">
 
                 </div>
@@ -191,7 +191,7 @@
     <section class="bg-grey mockup-2">
         <div class="container coinshred">
 
-            <div class="row boxrow alignitems-center justify-content-evenly py-2 ">
+            <div class="row boxrow alignitems-center justify-content-evenly py-2 mock-2-container">
                 <div class="col-md-5 col-sm-12 order-sm-1 order-md-2">
                     <div class="card bg-grey">
                         <div class="card-body">
@@ -209,8 +209,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-12 order-sm-1 order-md-2">
-                    <img src="/IMG/Mock Ups/Apple iPhone XS Gold.png" class="img-thumbnail bg-grey mockups"
+                <div class="col-md-5 col-sm-12 order-sm-1 order-md-2 mockup-container">
+                    <img src="/IMG/Mock Ups/mock-1.png" class="img-thumbnail bg-grey mockups"
                         alt="mockups">
                 </div>
 
@@ -401,6 +401,10 @@
 
 <!-- JQUERY -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/JS/cookies.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+<script src="JS/encryption.js"></script>
 <script src="/JS/main.js"></script>
+
 
 </html>

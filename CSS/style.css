@@ -78,3 +78,14 @@
         margin-bottom: 2rem;
     }
 }
+
+@media only screen and (max-width: 765px) {
+    .mock-2-container{
+        flex-direction: column-reverse;
+    }
+}
+
+
+.mockup-container{
+    text-align: center;
+}

@@ -72,14 +72,7 @@ function _GET_REQUEST(url, response) {
   
     xhttp.open("GET", url, true);
     xhttp.send();
-  }
-    
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        response(this.responseText);
-      }
-    };
-  
+  }  
   
   
   // Use like:

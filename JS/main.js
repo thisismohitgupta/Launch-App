@@ -52,3 +52,40 @@ subscribeBtn.addEventListener('click', () => {
 // changing the content of subscription container
 // var subscriptionContainer = document.getElementById('subscription-container');
 // subscriptionContainer.innerHTML = `<p>Hi ${name}</p><p>You will automatically recive your credits  when you sign up.</p>`;
+
+
+
+
+function _GET_REQUEST(url, response) {
+    var xhttp;
+    if (window.XMLHttpRequest) {
+      xhttp = new XMLHttpRequest();
+    } else {
+      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        response(this.responseText);
+      }
+    };
+  
+    xhttp.open("GET", url, true);
+    xhttp.send();
+  }
+    
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        response(this.responseText);
+      }
+    };
+  
+  
+  
+  // Use like:
+  _GET_REQUEST('http://www.geoplugin.net/json.gp', (response) => {
+      // Do something with variable response
+        console.log(response);
+  });
+
+  console.log('working')

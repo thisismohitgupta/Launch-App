@@ -8,7 +8,7 @@ copyright.innerText = `© ${currentYear} Coinshred. All Rights Reserved`;
 
 
 // Getting the client location, currency code and more from api 
-var price, currencyCode, city, country, timezone;
+var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
 
 fetch(`http://www.geoplugin.net/json.gp`).then(response => {
 
@@ -40,7 +40,7 @@ subscribeBtn.addEventListener('click', () => {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: `/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${invitation_id}`,
+        url: `api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${invitation_id}`,
         data: {},
         success: function (jsondata) {
             console.log(jsondata)

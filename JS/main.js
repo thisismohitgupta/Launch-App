@@ -40,7 +40,9 @@ subscribeBtn.addEventListener('click', () => {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${invitation_id}`,
+        url: ``,
+        headers: {  'Access-Control-Allow-Origin': `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${invitation_id}` },
+        crossDomain:true,
         data: {},
         success: function (jsondata) {
             console.log(jsondata)

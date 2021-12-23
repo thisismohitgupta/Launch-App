@@ -9,7 +9,7 @@ copyright.innerText = `© ${currentYear} Coinshred. All Rights Reserved`;
 
 // Getting the client location, currency code and more from api 
 var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
-
+var geoURL = 'http://www.geoplugin.net/json.gp';
 fetch(`http://www.geoplugin.net/json.gp`).then(response => {
 
     return response.json()
@@ -56,29 +56,18 @@ subscribeBtn.addEventListener('click', () => {
 
 
 
-function _GET_REQUEST(url, response) {
-    var xhttp;
-    if (window.XMLHttpRequest) {
-      xhttp = new XMLHttpRequest();
-    } else {
-      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+function httpGetAsync(url, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        callback(xmlHttp.responseText);
     }
-  
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        response(this.responseText);
-      }
-    };
-  
-    xhttp.open("GET", url, true);
-    xhttp.send();
-  }  
-  
-  
-  // Use like:
-  _GET_REQUEST('http://www.geoplugin.net/json.gp', (response) => {
-      // Do something with variable response
-        console.log(response);
-  });
+    xmlHttp.open("GET", url, true); // true for asynchronous 
+    xmlHttp.send(null);
+  }
 
-  console.log('working')
+function test(){
+    console.log('working');
+}
+
+  httpGetAsync(geoURL, test)

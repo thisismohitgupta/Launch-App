@@ -56,18 +56,73 @@ subscribeBtn.addEventListener('click', () => {
 
 
 
-function httpGetAsync(url, callback) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-        callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", url, true); // true for asynchronous 
-    xmlHttp.send(null);
+  onmessage = evt => {
+    const port = evt.ports[0]
+  
+    fetch(...evt.data).then(res => {
+      // the response is not clonable
+      // so we make a new plain object
+      const obj = {
+        bodyUsed: false,
+        headers: [...res.headers],
+        ok: res.ok,
+        redirected: res.redurected,
+        status: res.status,
+        statusText: res.statusText,
+        type: res.type,
+        url: res.url
+      }
+  
+      port.postMessage(obj)
+  
+      // Pipe the request to the port (MessageChannel)
+      const reader = res.body.getReader()
+      const pump = () => reader.read()
+      .then(({value, done}) => done 
+        ? port.postMessage(done)
+        : (port.postMessage(value), pump())
+      )
+  
+      // start the pipe
+      pump()
+    })
   }
 
-function test(){
-    console.log('working');
-}
 
-  httpGetAsync(geoURL, test)
+
+  window.popup = window.open(geoURL);
+
+
+  function xfetch(...args) {
+    // tell the proxy to make the request
+    const ms = new MessageChannel
+    popup.postMessage(args, '*', [ms.port1])
+  
+    // Resolves when the headers comes
+    return new Promise((rs, rj) => {
+  
+      // First message will resolve the Response Object
+      ms.port2.onmessage = ({data}) => {
+        const stream = new ReadableStream({
+          start(controller) {
+  
+            // Change the onmessage to pipe the remaning request
+            ms.port2.onmessage = evt => {
+              if (evt.data === true) // Done?
+                controller.close()
+              else // enqueue the buffer to the stream
+                controller.enqueue(evt.data)
+            }
+          }
+        })
+  
+        // Construct a new response with the 
+        // response headers and a stream
+        rs(new Response(stream, data))
+      }
+    })
+  }
+
+  xfetch(geoURL)
+  .then(res => res.text())
+  .then(console.log)

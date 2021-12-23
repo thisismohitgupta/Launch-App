@@ -1,0 +1,134 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Duru+Sans&family=JetBrains+Mono:wght@200&display=swap'); */
+body {
+  font-family: 'Duru Sans', sans-serif;
+  background-color: #fff !important;
+}
+p{padding: 10px 0px;}
+nav .container{position: relative;}
+.nav-item{    padding: 10px 10px;}
+.textjustify{text-align: justify !important;}
+p{margin-bottom: 10px;}
+.bg-sky{color: #007BFF;}
+nav .navbar-nav{position: absolute;right:0px;z-index: 9999999;background-color: #fff;}
+.alignitems-center{align-items: center;}
+section{padding: 40px 0px;}
+.title hr{width: 20%;color:#007AFF;border: 3px solid #007AFF; opacity: inherit; border-radius: 5px;margin: 0px auto;}
+.title h2{padding: 20px 0px;}
+body .mini-footer{text-align: left;color: #fff;}
+
+.mini-footer ul li{padding: 10px;color: #fff;}
+.mini-footer ul li a{color:#fff;}
+.accordion-item{background: #FFFFFF;box-shadow: 0px 4px 53px rgba(0, 0, 0, 0.06);margin-bottom: 10px;}
+.accordion-button:not(.collapsed) { color: #000000 !important; background-color: #fff;}
+.menubtn{background-color: #007AFF;color: #fff !important;}
+/*   -- testmoniol----    */
+#carouselExampleIndicators .carousel-inner{padding: 20px;}
+#carouselExampleIndicators .carousel-control-next, #carouselExampleIndicators .carousel-control-prev {
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;/*background-color: #007BFF;*/
+    align-items: center;
+    justify-content: center;
+     width: 6%; height: 20%;border-radius: 20px;
+    color: #007BFF;font-size: 60px;
+    text-align: center;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+#carouselExampleIndicators .carousel-control-prev {left: -10px;}
+#carouselExampleIndicators .carousel-control-next { right: -10px;}
+
+.bg-grey .hexagon-overlay.center-center {left: 33%;top: 60%;}
+#carouselExampleIndicators .carousel-indicators button{width: 10px;	height: 10px;	margin: 0 4px 0;	border-radius: 50%;	background: grey;border: 1px solid grey;}
+#carouselExampleIndicators .carousel-indicators button.active{background: #007BFF;}
+#carouselExampleIndicators	.carousel-inner .container{padding: 20px;}
+#carouselExampleIndicators	.carousel-inner .row{background: #FFFFFF;box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.12);}
+#carouselExampleIndicators	.carousel-inner .container .text-center{padding: 30px;}
+
+	.crpto{align-items: center;background: #FDFDFD;box-shadow: 0px 7px 21px rgba(0, 0, 0, 0.06);border-radius: 3px;padding: 20px;}
+    .crpto-white{align-items: center;background: #fff;box-shadow: 0px 7px 21px rgba(0, 0, 0, 0.06);border-radius: 3px;padding: 20px;}
+.crpto img{width: 60%;} .arrowin img, .arrowin2 img{width: 20%;}
+.arrowin{text-align: right !important;}
+.arrowin2{text-align: left !important;}
+.coinshred h4{padding: 10px 0px;}
+.boxrow{position: relative;}
+.boxrow .alignbottom{z-index: 9;}
+.center-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: unset;
+}
+.hexagon-overlay.center-left {left: -4%;top: -6%;}
+.hexagon-overlay.center-left.circle2 { left: -4%;top: 5%;}
+.hexagon-overlay.center-center.circle { right: -3%; top: 50%;}
+.hexagon-overlay.center-center{left:33%;top:60%;}
+.hexagon-overlay { position: absolute;}
+.circle{width: 180px;}
+.circle2{width: 120px;}
+.bg-grey{background-color:#F6F6F6!important}
+.bg-box{background: #FFFFFF;box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.09);border-radius: 3px;}
+.bg-box p{padding: 10px 0px}
+/*----------- slider -----------------------*/
+@media(min-width:767px){section.mainslidernew{height: 100vh;  -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;}}
+.mainslidernew{background-image: url(/IMG/Waves.png); background-repeat: no-repeat; background-position: bottom;background-size: 100% auto;}
+.newheroform-block{background: #FFFFFF;box-shadow: 0px -3px 21px rgba(0, 0, 0, 0.09), 0px 3px 21px rgba(0, 0, 0, 0.09);border-radius: 3px;}
+.buystate-one, .sellstate-one{padding-top: 10px;}
+.hero-cta > button{background: #007AFF;border-radius: 3px;}
+.heroform-footer > p > span{color: #007AFF;}
+.userguide-text h1 span{color: #007AFF;}
+.send-block, .get-block{padding: unset;}
+.heroform-block {    width: 100%;}
+.userguide-block {    color: #fff;     width: 100%;     text-align: center;}
+.heroform-body{min-height: auto;}
+.userguide-text > p {  font-size: inherit;}
+.currency-list:after{height: 40px;}
+.get-block {
+    margin-top: 35px;
+}
+@media (min-width: 1200px){
+.h1, h1 {
+    font-size: 3.5rem;
+}}
+@media only screen and (min-width: 320px) and (max-width: 767px){
+.userguide-text > h1 {
+    font-size: 40px;
+}
+}
+.input-grp > label, .currency-list > label{top: -25px;}
+.guide-box:after{border: unset;;}
+.userguide-step > p{width: 100%;text-align: center;}
+.guide > img{width: inherit;}
+.testlist{position: relative;}
+.testlist:after { position: absolute;content: '';left: -4px;bottom: 4px;width: 2px;height: 100%; background-color: #b2b9ac;}
+@media(max-width: 767px){
+    .testlist:after{display: none;}
+    .hexagon-overlay.center-left {
+    left: -20%;
+    top: -15%;opacity: .4;}
+    
+.nav-item a.nav-link{    padding: 10px 10px;}
+nav .navbar-nav{border: 1px solid #ccc;}
+}
+/*------------------  multi item curosul    ------------------*/
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+    .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+        .MultiCarousel .MultiCarousel-inner .item { float: left;}
+        .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;}
+    .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+    .MultiCarousel .leftLst { left:0; }
+    .MultiCarousel .rightLst { right:0; }
+    
+        .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+.item.crpto-white{background: #FFFFFF;
+box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.06);
+border-radius: 3px;}

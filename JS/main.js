@@ -102,8 +102,8 @@ if (referall_code != null) {
 }
 
 
-// if (getCookie('name') == null && getCookie('email') == null && getCookie('user_id') == null) {
-if (0 != 0) {
+if (getCookie('name') == null && getCookie('email') == null && getCookie('user_id') == null) {
+// if (0 != 0) {
 
     // changing the content of subscription container
 

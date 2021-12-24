@@ -147,16 +147,19 @@ subscribeBtn.addEventListener('click', () => {
 
     var settings = {
         // 'cache': false,
-        'dataType': "json",
+        // 'dataType': "jsonp",
         // "async": true,
         "crossDomain": true,
         "method": "POST",
-        "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`,
         "headers": {
             "accept": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "X-Requested-With,Content-Type",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+            // "Access-Control-Allow-Origin": "https://api.coinshred.com/"
         },
-        data:'{}'
+        data:'{}',
+        "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`
     }
 
     $.ajax(settings).done(function (response) {
@@ -219,6 +222,15 @@ subscribeBtn.addEventListener('click', () => {
             console.log("Wrapped setTimeout after 2000ms");
         });
     })
-
-
 }
+
+
+
+// fetch(`https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`, {
+//   mode: 'cors',
+//   headers: {
+//     'Access-Control-Allow-Origin':'*'
+//   }
+// })
+//   .then(response => response.json())
+//   .then(data => {console.log(data)})

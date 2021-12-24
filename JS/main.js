@@ -146,16 +146,17 @@ subscribeBtn.addEventListener('click', () => {
     shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
 
     var settings = {
-        'cache': false,
-        'dataType': "jsonp",
-        "async": true,
+        // 'cache': false,
+        'dataType': "json",
+        // "async": true,
         "crossDomain": true,
-        "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`,
         "method": "POST",
+        "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`,
         "headers": {
             "accept": "application/json",
             "Access-Control-Allow-Origin": "*"
-        }
+        },
+        data:'{}'
     }
 
     $.ajax(settings).done(function (response) {

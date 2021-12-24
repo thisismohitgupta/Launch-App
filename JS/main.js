@@ -138,8 +138,8 @@ ${invitation_html}
 // Handling the form data using AJAX
 var subscribeBtn = document.getElementById('subscribe-btn');
 subscribeBtn.addEventListener('click', () => {
-    var name = document.getElementById('user-full-name').value;
-    var email = document.getElementById('user-email').value;
+    name = document.getElementById('user-full-name').value;
+    email = document.getElementById('user-email').value;
     
 
     var user_id = Encryption(`${name}|${email}`);

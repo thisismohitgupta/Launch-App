@@ -29,10 +29,10 @@ var name, email, user_id, shareURL;
 
 // for testing
 var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
-name = 'Anurag Rai'
-email = 'Anuragrai15march@gmail.com'
-user_id = 'QW51cmFnIFJhaXxBbnVyYWdAZW1haWwuY29t'
-shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
+// name = 'Anurag Rai'
+// email = 'Anuragrai15march@gmail.com'
+// user_id = 'QW51cmFnIFJhaXxBbnVyYWdAZW1haWwuY29t'
+// shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
 
 
 function copyToClipboard(text) {
@@ -197,9 +197,9 @@ subscribeBtn.addEventListener('click', () => {
 
 } else {
     // fetching data from cookies
-    // name = getCookie('name') 
-    // email = getCookie('email') 
-    // user_id = getCookie('user_id')
+    name = getCookie('name') 
+    email = getCookie('email') 
+    user_id = getCookie('user_id')
 
     changeContent();
 

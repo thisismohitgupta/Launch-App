@@ -194,6 +194,7 @@ subscribeBtn.addEventListener('click', () => {
     name = getCookie('name') 
     email = getCookie('email') 
     user_id = getCookie('user_id')
+    shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
 
     changeContent();
 

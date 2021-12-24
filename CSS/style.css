@@ -80,12 +80,42 @@
 }
 
 @media only screen and (max-width: 765px) {
-    .mock-2-container{
+    .mock-2-container {
         flex-direction: column-reverse;
     }
 }
 
 
-.mockup-container{
+.mockup-container {
     text-align: center;
+}
+
+
+
+/* styling for coping the link address */
+.share-link-container div {
+    display: flex;
+}
+
+.copy-btn {
+    border: none;
+}
+
+.copy-btn:hover {
+    background-color: #e3e3e3;
+}
+
+.share-link-container img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.copy-status {
+    margin: 10px auto;
+    text-align: center;
+    background-color: #e3e3e3;
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 10px;
+    display: none;
 }

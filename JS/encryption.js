@@ -5,8 +5,8 @@
  * @returns 
  */
 function Encryption(string) {
-    var ciphertext = CryptoJS.AES.encrypt('Anurag Rai|Anuragrai15march@gmail.com', 'coinshred').toString();
-    return ciphertext;
+    const encodedString = window.btoa(string); // "a29ucmFk"
+    return encodedString;
 }
 
 /**
@@ -14,10 +14,9 @@ function Encryption(string) {
  * @param {Encrypted Data} encrtpted 
  * @param {Secret Key} key 
  */
-function Decryption(encrtpted, key = 'coinshred') {
+function Decryption(encrtpted) {
     // Decrypt
-    var bytes = CryptoJS.AES.decrypt(encrtpted, key);
-    var originalText = bytes.toString(CryptoJS.enc.Utf8);
+    var originalText = window.atob(encrtpted);
     data = originalText.split('|');
     return data;
 }

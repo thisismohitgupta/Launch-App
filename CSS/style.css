@@ -47,6 +47,8 @@
 
 .mockup-2 {
     flex-flow: wrap-reverse;
+    padding-top: 3rem !important;
+    border-top: 1px solid #e3e3e3;
 }
 
 @media only screen and (max-width: 425px) {
@@ -68,7 +70,7 @@
 }
 
 .coins-img {
-    min-height: 2rem;
+    height: 2.7rem;
     margin: 1rem auto;
 }
 
@@ -76,15 +78,42 @@
     .coins-img {
         font-size: 1.2rem !important;
         margin-bottom: 2rem;
+        height: 1.8rem;
     }
+
+
+}
+
+.heart {
+    color: red !important;
+    font-size: 5rem;
 }
 
 @media only screen and (max-width: 765px) {
     .mock-2-container {
         flex-direction: column-reverse;
     }
+
+    #subscription-container h4 {
+        font-size: 1rem;
+    }
+
+    .slogan-title {
+        font-size: 2rem !important;
+    }
+
+    .slogan-title .heart {
+        font-size: 2.5rem !important;
+    }
+
 }
 
+@media only screen and (max-width: 765px) and (min-width: 550px) {
+    #subscription-container {
+        width: 70%;
+    }
+
+}
 
 .mockup-container {
     text-align: center;
@@ -118,4 +147,10 @@
     padding: 0 10px;
     border-radius: 10px;
     display: none;
+}
+
+.mockup-title {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 2rem;
 }

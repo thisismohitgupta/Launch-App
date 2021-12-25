@@ -107,13 +107,13 @@ if (getCookie('name') == null && getCookie('email') == null && getCookie('user_i
 
     // changing the content of subscription container
 
-    subscriptionTitle.innerHTML = `<h1>Register Now</h1>`;
+    subscriptionTitle.innerHTML = `<h4>Get $50 when we launch in your wallet</h4>`;
     subscriptionContent.innerHTML = `              <form action="" class="subscription-form">
 
     <div class="mb-3">
         <label for="user-full-name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="user-full-name"
-            placeholder="Eg: Mohit Gupta">
+            placeholder="Eg:- ">
     </div>
 
     <div class="mb-3">
@@ -129,7 +129,7 @@ ${invitation_html}
     <div class="hero-cta">
         <button id="subscribe-btn" class="btn carousel-control-next" type="button"
             data-bs-target="#buyCarousel" data-bs-slide="next">
-            Grab 3k Now
+            Register Now
         </button>
     </div>
 </form>

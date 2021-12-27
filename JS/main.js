@@ -8,7 +8,7 @@ copyright.innerText = `© ${currentYear} Coinshred. All Rights Reserved`;
 
 
 // Getting the client location, currency code and more from api 
-var geoURL = 'http://www.geoplugin.net/json.gp';
+// var geoURL = 'http://www.geoplugin.net/json.gp';
 // https://ipapi.co/180.188.224.198/json/
 // https://www.iplocate.io/api/lookup/180.188.224.198
 // https://freegeoip.app/
@@ -28,7 +28,7 @@ var subscriptionContent = document.getElementById('subscription-content');
 var name, email, user_id, shareURL;
 
 // for testing
-var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
+// var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
 // name = 'Anurag Rai'
 // email = 'Anuragrai15march@gmail.com'
 // user_id = 'QW51cmFnIFJhaXxBbnVyYWdAZW1haWwuY29t'
@@ -113,7 +113,7 @@ if (getCookie('name') == null && getCookie('email') == null && getCookie('user_i
     <div class="mb-3">
         <label for="user-full-name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="user-full-name"
-            placeholder="Eg:- ">
+            placeholder="Eg:- Elon Musk">
     </div>
 
     <div class="mb-3">

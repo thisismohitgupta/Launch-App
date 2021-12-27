@@ -179,7 +179,7 @@ ${invitation_html}
                     "crossDomain": true,
                     "method": "POST",
                     data: '{}',
-                    "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`
+                    "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}&currencySymbol=${currency_symbol}&offerCode=${offer.offerCode}&offerAmount=${getPrice(offer.amount * price)}`
                 }
 
                 $.ajax(settings).done(function (response) {

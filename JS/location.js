@@ -1,3 +1,13 @@
+
+// code for getting the ip address of user
+var ip;
+$.getJSON("https://api.ipify.org?format=json", function(data) {
+       ip = data.ip;  
+    })
+
+
+
+// getting the geo data from api
 // geoURL = 'http://www.geoplugin.net/json.gp'
 geoURL = 'https://api.coinshred.com/geo/'
 var price, currencyCode, city, country, timezone;
@@ -5,7 +15,7 @@ var price, currencyCode, city, country, timezone;
 var settingsLoc = {
   "crossDomain": true,
   "method": "GET",
-  data: '{}',
+  data: `{ip:${ip}}`,
   "url": geoURL
 }
 

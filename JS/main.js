@@ -121,6 +121,9 @@ $.getJSON("https://api.ipify.org?format=json", function (data) {
             countryElements[i].textContent = country;
         }
 
+        var faqCountryElement = document.getElementById('faq-country');
+        faqCountryElement.innerText = faqCountryElement.innerText.replace('India', country)
+
         // setting up offer amount in the page
         var tempElements = document.getElementsByClassName('offer');
         for (var i = 0; i < tempElements.length; i++) {

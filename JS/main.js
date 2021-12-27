@@ -113,7 +113,7 @@ if (getCookie('name') == null && getCookie('email') == null && getCookie('user_i
     <div class="mb-3">
         <label for="user-full-name" class="form-label">Full Name</label>
         <input type="text" class="form-control" id="user-full-name"
-            placeholder="Eg:- Elon Musk">
+            placeholder="Eg:- Tony Stark">
     </div>
 
     <div class="mb-3">

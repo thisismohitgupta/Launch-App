@@ -1,15 +1,55 @@
-offer_1 = {
-    'amount':30,
-    'currency':"INR",
-    'offer-code':"1def44"
+var offers = [{
+    amount: 10,
+    currency: "USDT",
+    offerCode: "1def44"
+}, {
+    amount: 20,
+    currency: "USDT",
+    offerCode: "263hj"
+}, {
+    amount: 30,
+    currency: "USDT",
+    offerCode: "87hbd"
+}]
+
+offerCode = getCookie('offerCode')
+
+if (offerCode == null) {
+    var params = (new URL(document.location)).searchParams;
+    var offer;
+    var offerCode = params.get("offer-code");
+
+    if (offerCode == null) {
+        offer = offers[0];
+    } else {
+
+        var offer = offers.filter(function (lauchOffer) {
+            return lauchOffer.offerCode == offerCode;
+        });
+        offer = offer[0];
+    }
+} else {
+    var offer = offers.filter(function (lauchOffer) {
+        return lauchOffer.offerCode == offerCode;
+    });
+    offer = offer[0];
+
+
 }
-offer_2 = {
-    'amount':40,
-    'currency':"INR",
-    'offer-code':"263hj"
+
+/**
+ * This function return the appropriate approx offer price
+ * @param {*} price 
+ */
+function getPrice(price){
+    var myString = price.toString();
+    mystring = myString.split('.')[0];
+    var offerAmount = mystring[0];
+    for(var digit=1; digit<mystring.length; digit++){
+        offerAmount += '0';
+    }
+
+    return offerAmount;
 }
-offer_3 = {
-    'amount':50,
-    'currency':"INR",
-    'offer-code':"87hbd"
-}
+
+

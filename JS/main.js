@@ -17,7 +17,7 @@ copyright.innerText = `© ${currentYear} Coinshred. All Rights Reserved`;
 
 
 // fetching the referal code
-let params = (new URL(document.location)).searchParams;
+var params = (new URL(document.location)).searchParams;
 const referall_code = params.get("reffer");
 var invitation_html = ''
 
@@ -26,14 +26,6 @@ var subscriptionTitle = document.getElementById('subscription-title');
 var subscriptionContent = document.getElementById('subscription-content');
 
 var name, email, user_id, shareURL;
-
-// for testing
-// var price = 75.67, currencyCode = 'INR', city = 'Chandigarh', country = 'India', timezone = 'Kolkata';
-// name = 'Anurag Rai'
-// email = 'Anuragrai15march@gmail.com'
-// user_id = 'QW51cmFnIFJhaXxBbnVyYWdAZW1haWwuY29t'
-// shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
-
 
 function copyToClipboard(text) {
     const elem = document.createElement('textarea');
@@ -55,7 +47,7 @@ var refered_by_name, refered_by_email;
 /**
  * This function is used to change the content of subscription container
  */
-function changeContent(){
+function changeContent() {
 
     subscriptionTitle.innerHTML = `<h3>Hi ${name.charAt(0).toUpperCase() + name.slice(1)},</h3>`;
     subscriptionContent.innerHTML = `
@@ -78,7 +70,7 @@ function changeContent(){
     termsElement.style.borderTop = '1px solid #000';
     termsElement.style.padding = '5px';
     termsElement.style.paddingLeft = '0';
-    termsElement.style.textAlign = 'right';    
+    termsElement.style.textAlign = 'right';
 
 }
 
@@ -102,13 +94,48 @@ if (referall_code != null) {
 }
 
 
-if (getCookie('name') == null && getCookie('email') == null && getCookie('user_id') == null) {
-// if (0 != 0) {
+// code for getting the ip address of user
+var ip, price, currencyCode, city, country, timezone, currency_symbol;
 
-    // changing the content of subscription container
+$.getJSON("https://api.ipify.org?format=json", function (data) {
+    ip = data.ip;
 
-    subscriptionTitle.innerHTML = `<h4>Get $50 when we launch in your wallet</h4>`;
-    subscriptionContent.innerHTML = `              <form action="" class="subscription-form">
+    // getting the geo data from api
+    // geoURL = 'http://www.geoplugin.net/json.gp'
+
+    geoURL = `https://api.coinshred.com/geo/?ip=${ip}`
+    var settingsLoc = {
+        "crossDomain": true,
+        "method": "GET",
+        data: ``,
+        "url": geoURL
+    }
+
+    $.ajax(settingsLoc).done(function (jsondata) {
+        console.log(jsondata)
+        price = jsondata.geoplugin_currencyConverter, currencyCode = jsondata.geoplugin_currencyCode, city = jsondata.geoplugin_city, country = jsondata.geoplugin_countryName, timezone = jsondata.geoplugin_timezone, currency_symbol = jsondata.geoplugin_currencySymbol;
+
+        // changing the country name in page
+        var countryElements = document.getElementsByClassName('country');
+        for (var i = 0; i < countryElements.length; i++) {
+            countryElements[i].textContent = country;
+        }
+
+        // setting up offer amount in the page
+        var tempElements = document.getElementsByClassName('offer');
+        for (var i = 0; i < tempElements.length; i++) {
+            tempElements[i].textContent = `${currency_symbol}${getPrice(offer.amount * price)}`
+        }
+
+
+
+        if (getCookie('name') == null && getCookie('email') == null && getCookie('user_id') == null) {
+            // if (0 != 0) {
+
+            // changing the content of subscription container
+
+            subscriptionTitle.innerHTML = `<h4>Get ${currency_symbol} ${getPrice(offer.amount * price)} when we launch in your wallet</h4>`;
+            subscriptionContent.innerHTML = `              <form action="" class="subscription-form">
 
     <div class="mb-3">
         <label for="user-full-name" class="form-label">Full Name</label>
@@ -135,93 +162,88 @@ ${invitation_html}
 </form>
 `
 
-// Handling the form data using AJAX
-var subscribeBtn = document.getElementById('subscribe-btn');
-subscribeBtn.addEventListener('click', () => {
-    name = document.getElementById('user-full-name').value;
-    email = document.getElementById('user-email').value;
-    
-
-    var user_id = Encryption(`${name}|${email}`);
-    shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
-
-    var settings = {
-        "crossDomain": true,
-        "method": "POST",
-        data:'{}',
-        "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`
-    }
-
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-
-        // setting the cookies
-        setCookie("email", email, 100);
-        setCookie("name", name, 100);
-        setCookie("user_id", user_id, 100);
+            // Handling the form data using AJAX
+            var subscribeBtn = document.getElementById('subscribe-btn');
+            subscribeBtn.addEventListener('click', () => {
+                name = document.getElementById('user-full-name').value;
+                email = document.getElementById('user-email').value;
 
 
-        // changing the content of subscription container
-        changeContent()
+                var user_id = Encryption(`${name}|${email}`);
+                shareURL = `https://www.coinshred.com/?reffer=${user_id}&offer-code=${offer.offerCode}`;
 
-        // adding event listner to the copy btn for displaying the linked copied text
-        var copyBtn = document.getElementById('share-copy-btn');
-        var copyStatus = document.getElementById('share-link-status');
+                var settings = {
+                    "crossDomain": true,
+                    "method": "POST",
+                    data: '{}',
+                    "url": `https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`
+                }
 
-        copyBtn.addEventListener('click', () => {
-            return new Promise(function (resolve, reject) {
-                copyToClipboard(shareURL)
-                copyStatus.style.display = 'block';
-                // Setting 2000 ms time
-                setTimeout(resolve, 2000);
-            }).then(function () {
-                copyStatus.style.display = 'none';
-                console.log("Wrapped setTimeout after 2000ms");
-            });
-        })
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+
+                    // setting the cookies
+                    setCookie("email", email, 100);
+                    setCookie("name", name, 100);
+                    setCookie("user_id", user_id, 100);
+                    setCookie("offerCode", offer.offerCode, 100);
+
+
+                    // changing the content of subscription container
+                    changeContent()
+
+                    // adding event listner to the copy btn for displaying the linked copied text
+                    var copyBtn = document.getElementById('share-copy-btn');
+                    var copyStatus = document.getElementById('share-link-status');
+
+                    copyBtn.addEventListener('click', () => {
+                        return new Promise(function (resolve, reject) {
+                            copyToClipboard(shareURL)
+                            copyStatus.style.display = 'block';
+                            // Setting 2000 ms time
+                            setTimeout(resolve, 2000);
+                        }).then(function () {
+                            copyStatus.style.display = 'none';
+                            console.log("Wrapped setTimeout after 2000ms");
+                        });
+                    })
 
 
 
-    });
+                });
+
+
+            })
+
+
+
+        } else {
+            // fetching data from cookies
+            name = getCookie('name')
+            email = getCookie('email')
+            user_id = getCookie('user_id')
+            shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
+
+            changeContent();
+
+            // adding event listner to the copy btn for displaying the linked copied text
+            var copyBtn = document.getElementById('share-copy-btn');
+            var copyStatus = document.getElementById('share-link-status');
+
+            copyBtn.addEventListener('click', () => {
+                return new Promise(function (resolve, reject) {
+                    copyToClipboard(shareURL)
+                    copyStatus.style.display = 'block';
+                    // Setting 2000 ms time
+                    setTimeout(resolve, 2000);
+                }).then(function () {
+                    copyStatus.style.display = 'none';
+                    console.log("Wrapped setTimeout after 2000ms");
+                });
+            })
+        }
+
+    })
 
 
 })
-
-
-
-} else {
-    // fetching data from cookies
-    name = getCookie('name') 
-    email = getCookie('email') 
-    user_id = getCookie('user_id')
-    shareURL = `https://www.coinshred.com/?reffer=${user_id}`;
-
-    changeContent();
-
-    // adding event listner to the copy btn for displaying the linked copied text
-    var copyBtn = document.getElementById('share-copy-btn');
-    var copyStatus = document.getElementById('share-link-status');
-
-    copyBtn.addEventListener('click', () => {
-        return new Promise(function (resolve, reject) {
-            copyToClipboard(shareURL)
-            copyStatus.style.display = 'block';
-            // Setting 2000 ms time
-            setTimeout(resolve, 2000);
-        }).then(function () {
-            copyStatus.style.display = 'none';
-            console.log("Wrapped setTimeout after 2000ms");
-        });
-    })
-}
-
-
-
-// fetch(`https://api.coinshred.com/launch/?email=${email}&full_name=${name}&id=${user_id}&default_currency=${currencyCode}&currency_value=${price}&city=${city}&country=${country}&timezone=${timezone}&invite_by_id=${referall_code}`, {
-//   mode: 'cors',
-//   headers: {
-//     'Access-Control-Allow-Origin':'*'
-//   }
-// })
-//   .then(response => response.json())
-//   .then(data => {console.log(data)})

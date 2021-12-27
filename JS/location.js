@@ -14,7 +14,7 @@ var settingsLoc = {
 
 $.ajax(settingsLoc).done(function (jsondata) {
   console.log(jsondata)
-  price = jsondata.geoplugin_currencyConverter, currencyCode = jsondata.geoplugin_currencyCode, city = jsondata.geoplugin_city, country = jsondata.geoplugin_countryName, timezone = geoplugin_timezone;
+  price = jsondata.geoplugin_currencyConverter, currencyCode = jsondata.geoplugin_currencyCode, city = jsondata.geoplugin_city, country = jsondata.geoplugin_countryName, timezone = jsondata.geoplugin_timezone;
 
 })
 

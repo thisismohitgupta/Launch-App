@@ -1,19 +1,23 @@
 // geoURL = 'http://www.geoplugin.net/json.gp'
-geoURL = 'https://api.coinshred.com/launch/'
+geoURL = 'https://api.coinshred.com/geo/'
 var price, currencyCode, city, country, timezone;
 
-$.ajax({
-  type: 'GET',
-  dataType: 'json',
-  url: geoURL,
-  data: {},
-  success: function (jsondata) {
-    // console.log('working')
-    console.log(jsondata)
-    price = jsondata.geoplugin_currencyConverter, currencyCode = jsondata.geoplugin_currencyCode, city = jsondata.geoplugin_city, country = jsondata.geoplugin_countryName, timezone = geoplugin_timezone;
+var settingsLoc = {
+  "crossDomain": true,
+  "method": "GET",
+  data: '{}',
+  "url": geoURL
+}
 
-  }
+
+
+
+$.ajax(settingsLoc).done(function (response) {
+  console.log(jsondata)
+  price = jsondata.geoplugin_currencyConverter, currencyCode = jsondata.geoplugin_currencyCode, city = jsondata.geoplugin_city, country = jsondata.geoplugin_countryName, timezone = geoplugin_timezone;
+
 })
+
 
 
 

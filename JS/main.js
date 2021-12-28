@@ -97,13 +97,14 @@ if (referall_code != null) {
 // code for getting the ip address of user
 var ip, price, currencyCode, city, country, timezone, currency_symbol;
 
-$.getJSON("https://api.ipify.org?format=json", function (data) {
-    ip = data.ip;
+// $.getJSON("https://api.ipify.org?format=json", function (data) {
+//     ip = data.ip;
 
     // getting the geo data from api
     // geoURL = 'http://www.geoplugin.net/json.gp'
 
-    geoURL = `https://api.coinshred.com/geo/?ip=${ip}`
+    // geoURL = `https://api.coinshred.com/geo/?ip=${ip}`
+    geoURL = `https://api.coinshred.com/geo/`
     var settingsLoc = {
         "crossDomain": true,
         "method": "GET",
@@ -249,4 +250,4 @@ ${invitation_html}
     })
 
 
-})
+// })

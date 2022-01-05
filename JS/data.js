@@ -23,7 +23,7 @@ function displayAndSaveData(price, currencyCode, city, country, timezone, curren
 
         // changing the content of subscription container
 
-        subscriptionTitle.innerHTML = `<h4>Get ${currency_symbol} ${getPrice(offer.amount * price)} when we launch in your wallet</h4>`;
+        subscriptionTitle.innerHTML = `<h4>Get ${currency_symbol} ${getPrice(offer.amount * price)} in your wallet when we launch</h4>`;
         subscriptionContent.innerHTML = `              <form action="" class="subscription-form">
 
 <div class="mb-3">

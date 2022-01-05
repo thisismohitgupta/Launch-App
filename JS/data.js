@@ -45,7 +45,7 @@ ${invitation_html}
 <div class="hero-cta">
     <button id="subscribe-btn" class="btn carousel-control-next" type="button"
         data-bs-target="#buyCarousel" data-bs-slide="next">
-        Register Now
+        Join the waitlist
     </button>
 </div>
 </form>

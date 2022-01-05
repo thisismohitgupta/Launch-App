@@ -31,13 +31,22 @@ if (offerCode == null) {
         var offer = offers.filter(function (lauchOffer) {
             return lauchOffer.offerCode == offerCode;
         });
-        offer = offer[0];
+        if (offer.length > 0) {
+            offer = offer[0];
+        } else {
+            offer = offers[0];
+        }
+
     }
 } else {
     var offer = offers.filter(function (lauchOffer) {
         return lauchOffer.offerCode == offerCode;
     });
-    offer = offer[0];
+    if (offer.length > 0) {
+        offer = offer[0];
+    } else {
+        offer = offers[0];
+    }
 
 
 }

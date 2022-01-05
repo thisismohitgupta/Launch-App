@@ -56,6 +56,9 @@ ${invitation_html}
         subscribeBtn.addEventListener('click', () => {
             name = document.getElementById('user-full-name').value;
             email = document.getElementById('user-email').value;
+            
+            if (name != '' & email != '')
+            {
 
 
             var user_id = Encryption(`${name}|${email}`);
@@ -96,10 +99,10 @@ ${invitation_html}
                         console.log("Wrapped setTimeout after 2000ms");
                     });
                 })
-
-
-
+                
+                
             });
+        }
 
 
         })

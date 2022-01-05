@@ -10,6 +10,11 @@ var offers = [{
     amount: 30,
     currency: "USDT",
     offerCode: "87hbd"
+},
+{
+    amount: 65,
+    currency: "USDT",
+    offerCode: "6kih5"
 }]
 
 offerCode = getCookie('offerCode')
@@ -41,11 +46,11 @@ if (offerCode == null) {
  * This function return the appropriate approx offer price
  * @param {*} price 
  */
-function getPrice(price){
+function getPrice(price) {
     var myString = price.toString();
     mystring = myString.split('.')[0];
     var offerAmount = mystring[0];
-    for(var digit=1; digit<mystring.length; digit++){
+    for (var digit = 1; digit < mystring.length; digit++) {
         offerAmount += '0';
     }
 

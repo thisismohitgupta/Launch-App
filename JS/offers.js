@@ -12,7 +12,7 @@ var offers = [{
     offerCode: "87hbd"
 },
 {
-    amount: 65,
+    amount: 70,
     currency: "USDT",
     offerCode: "6kih5"
 }]
